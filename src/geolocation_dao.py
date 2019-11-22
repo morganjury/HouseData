@@ -38,11 +38,11 @@ class GeoLocationDao:
     
     def get_all(self):
         self.cursor.execute("SELECT * FROM geolocation")
-        return self.get_results(self)
+        return self.get_results()
     
     def get_within_range(self, min_latitude, max_latitude, min_longitude, max_longitude):
         self.cursor.execute("SELECT * FROM geolocation WHERE (latitude BETWEEN " + min_latitude + " AND " + max_latitude + ") AND (longitude BETWEEN " + min_longitude + " AND " + max_longitude + ")")
-        return self.get_results(self)
+        return self.get_results()
     
     def get_results(self):
         results = pandas.DataFrame(columns=column_names)
